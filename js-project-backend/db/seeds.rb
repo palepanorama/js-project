@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Fish.create(name: 'john', buyer_id: 1, vendor_id: 1 )
+
+Buyer.create(name: 'Walt')
+
+Vendor.create(name: "Mark's Fish")
+
+Species.create(name: "Catfish")
