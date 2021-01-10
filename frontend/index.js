@@ -13,6 +13,7 @@ function fetchBuyers(){
   .then(buyers => {
     for (const buyer of buyers) {
       let b = new Buyer(buyer.name, buyer.id)
+      b.renderBuyer();
     }
   })
 }
