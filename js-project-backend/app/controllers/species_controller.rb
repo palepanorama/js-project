@@ -1,2 +1,0 @@
-class SpeciesController < ApplicationController
-end
