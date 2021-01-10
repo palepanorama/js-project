@@ -9,8 +9,12 @@ const BASE_URL = "http://127.0.0.1:3000"
 //read - fetch buyer index
 function fetchBuyers(){
   fetch(`${BASE_URL}/buyers`)
-  .then(resp => console.log(resp))
-  .then()
+  .then(resp => resp.json())
+  .then(buyers => {
+    for (const buyer of buyers) {
+      let b = new Buyer(buyer.name, buyer.id)
+    }
+  })
 }
 
 
