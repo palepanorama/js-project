@@ -1,5 +1,5 @@
 class Buyer{
-    constructor(id, name){
+    constructor(name, id){
         this.id = id;
         this.name= name; 
     }
@@ -11,7 +11,8 @@ class Buyer{
         buyersDiv.innerHTML +=
         `
         <ul>
-        <li> ${this.id} 
+        <h3>Email: ${this.email}
+        <li> Username: ${this.name} 
         </li>
         </ul>
         `

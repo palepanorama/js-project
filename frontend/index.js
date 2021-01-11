@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   fetchBuyers()
+  createForm()
 })
 
-//anything that goes in event listener happens upon page loadin 
+//anything that goes in event listener happens upon page loading
 
 const BASE_URL = "http://127.0.0.1:3000"
 
@@ -20,4 +21,28 @@ function fetchBuyers(){
 
 
 //create - create new buyer 
+function createForm(){
+  let buyersForm = document.getElementById("buyers-form")
+
+  buyersForm.innerHTML += 
+  `
+  <form>
+    Username: <input type = "text id = "name">
+    <br>
+    Email: <input type = "text id = "email">
+    <br>
+    <input type = "submit" value = "Create User">
+  </form>
+  `
+
+  buyersForm.addEventListener("submit", newUserSubmission)
+}
+
+function newUserSubmission(){
+  debugger;
+}
+
+
+
+
 //delete - delete a buyer 
