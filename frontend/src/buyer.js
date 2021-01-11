@@ -17,7 +17,7 @@ class Buyer{
         <li> Username: ${this.name} 
         </li>
         </ul>
-        <button class="delete" data-id=${this.id}>Delete User</button>
+        <button class="delete" data-id=${this.id} onclick="deleteBuyer()">Delete User</button>
         `
     }
 }

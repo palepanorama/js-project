@@ -68,3 +68,10 @@ function newUserSubmission(){
 
 
 //delete - delete a buyer 
+function deleteBuyer(){
+  let buyerId = parseInt(event.target.dataset.id)
+
+  fetch(`${BASE_URL}/buyers/${buyerId}`, {
+    method: "DELETE"
+  })
+}
