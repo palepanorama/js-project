@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   fetchBuyers()
   createForm()
+  // fetchFish()
 })
 
 //anything that goes in event listener happens upon page loading
