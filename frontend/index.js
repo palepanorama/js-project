@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // fetchBuyers()
+  fetchBuyers()
   // createForm()
   fetchFish()
 })
@@ -23,8 +23,8 @@ function fetchBuyers(){
 function fetchFish(){
   fetch(`${BASE_URL}/fish`)
   .then(resp => resp.json())
-  .then(fish => {
-    for (const fish of fish) {
+  .then(fishes => {
+    for (const fish of fishes ){
       let f = new Fish(fish.name, fish.buyer_id)
       f.renderFish();
     }
