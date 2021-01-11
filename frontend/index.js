@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetchBuyers()
-  createForm()
-  // fetchFish()
+  // fetchBuyers()
+  // createForm()
+  fetchFish()
 })
 
 //anything that goes in event listener happens upon page loading
@@ -16,6 +16,17 @@ function fetchBuyers(){
     for (const buyer of buyers) {
       let b = new Buyer(buyer.name, buyer.id, buyer.email)
       b.renderBuyer();
+    }
+  })
+}
+
+function fetchFish(){
+  fetch(`${BASE_URL}/fish`)
+  .then(resp => resp.json())
+  .then(fish => {
+    for (const fish of fish) {
+      let f = new Fish(fish.name, fish.buyer_id)
+      f.renderFish();
     }
   })
 }

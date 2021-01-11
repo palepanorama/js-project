@@ -1,12 +1,13 @@
 class BuyersController < ApplicationController
 
     def index
-        @buyers = Buyer.all
-        render json: @buyers
+        buyers = Buyer.all
+        render json: buyers
     end
 
     def show 
-        render json: @buyer 
+        buyer = Buyer.find_by(id: params[:id])
+        render json: buyer 
     end 
 
     def create
