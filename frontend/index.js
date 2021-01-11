@@ -1,14 +1,15 @@
+const BASE_URL = "http://localhost:3000"
+
 document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("buyers-form").addEventListener('click', createForm )
+
   fetchBuyers()
   // createForm()
   fetchFish()
 })
 
-//anything that goes in event listener happens upon page loading
 
-const BASE_URL = "http://localhost:3000"
 
-//read - fetch buyer index
 function fetchBuyers(){
   fetch(`${BASE_URL}/buyers`)
   .then(resp => resp.json())

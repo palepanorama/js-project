@@ -1,7 +1,8 @@
 class Fish{
-    constructor(name, buyer_id){
+    constructor(name, price, buyer_id){
         this.name = name;
         this.buyer_id = buyer_id;
+        this.price = price;
     }
 
     renderFish(){
@@ -11,7 +12,7 @@ class Fish{
         `
         <h3>Fish Available:</h3>
         <ul>
-        <li>${this.fish}
+        <li>${this.name} - $${this.price}
         </li>
         </ul>
         `

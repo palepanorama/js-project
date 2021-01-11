@@ -16,6 +16,7 @@ class Buyer{
         </li>
         </ul>
         <button class="delete" data-id=${this.id} onclick="deleteBuyer()">Delete User</button>
+        <button class = "create" onClick="createForm()">Create a New User</button>
         `
     }
 }
