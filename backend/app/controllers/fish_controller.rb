@@ -8,4 +8,9 @@ class FishController < ApplicationController
         fish = Fish.find_by(id: params[:id])
         render json: fish 
     end 
+
+    private 
+    def fish_params
+        params.require(:fish).permit(:name, :buyer_id)
+    end 
 end
