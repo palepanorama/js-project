@@ -16,6 +16,7 @@ class Buyer{
         <h3>Email: ${this.email}
         <li> Username: ${this.name} 
         </li>
+        <li> id: ${this.id}
         </ul>
         <button class="delete" data-id=${this.id} onclick="deleteBuyer()">Delete User</button>
         `

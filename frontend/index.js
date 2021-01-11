@@ -61,7 +61,6 @@ function newUserSubmission(){
     let b = new Buyer(buyer.name, buyer.id, buyer.email)
     b.renderBuyer();
   })
-
 }
 
 
@@ -74,4 +73,7 @@ function deleteBuyer(){
   fetch(`${BASE_URL}/buyers/${buyerId}`, {
     method: "DELETE"
   })
+
+  this.location.reload()
+
 }
