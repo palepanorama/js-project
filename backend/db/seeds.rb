@@ -7,8 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Fish.create!(name: 'catfish', buyer_id: 1, vendor_id: 1 )
 
-Buyer.create(name: 'Walt')
+Buyer.create(name: 'Walt', email: 'walt@walt.com')
 
-Vendor.create(name: "Mark's Fish")
-
-Species.create(name: "Catfish")
