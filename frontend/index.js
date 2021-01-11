@@ -13,7 +13,7 @@ function fetchBuyers(){
   .then(resp => resp.json())
   .then(buyers => {
     for (const buyer of buyers) {
-      let b = new Buyer(buyer.name, buyer.id)
+      let b = new Buyer(buyer.name, buyer.id, buyer.email)
       b.renderBuyer();
     }
   })
@@ -56,7 +56,11 @@ function newUserSubmission(){
     },
     body: JSON.stringify(buyer)
   })
-  .then(resp => console.log(resp))
+  .then(resp => resp.json())
+  .then(buyer => {
+    let b = new Buyer(buyer.name, buyer.id, buyer.email)
+    b.renderBuyer();
+  })
 
 }
 
