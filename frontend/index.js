@@ -27,9 +27,9 @@ function createForm(){
   buyersForm.innerHTML += 
   `
   <form>
-    Username: <input type = "text id = "name">
+    Username: <input type = "text" id = "name">
     <br>
-    Email: <input type = "text id = "email">
+    Email: <input type = "text" id = "email">
     <br>
     <input type = "submit" value = "Create User">
   </form>
@@ -39,7 +39,25 @@ function createForm(){
 }
 
 function newUserSubmission(){
-  debugger;
+  event.preventDefault();
+  let name = document.getElementById("name").value
+  let email = document.getElementById("email").value
+
+  let buyer = {
+    name: name, 
+    email: email 
+  }
+
+  fetch(`${BASE_URL}/buyers`, {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(buyer)
+  })
+  .then(resp => console.log(resp))
+
 }
 
 
