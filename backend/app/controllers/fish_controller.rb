@@ -1,6 +1,6 @@
 class FishController < ApplicationController
     def index 
-        fish = Fish.all 
+        fish = Fish.all
         render json: fish 
     end 
 

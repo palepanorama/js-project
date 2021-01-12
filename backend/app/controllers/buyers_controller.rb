@@ -20,14 +20,6 @@ class BuyersController < ApplicationController
         end
     end
 
-    def update 
-        if @buyer.update(buyer_params)
-            render json: @buyer 
-        else 
-            render json @buyer.errors, status: unprocessable_entity
-        end 
-    end 
-
     def destroy 
         @buyer = Buyer.find_by(id: params[:id])
         @buyer.destroy 
