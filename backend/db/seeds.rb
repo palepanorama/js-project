@@ -8,5 +8,5 @@
 Fish.create(name: 'catfish', buyer_id: 1, price: 10)
 Fish.create(name: 'bass', buyer_id: 1, price: 20)
 
-Buyer.create(name: 'Walt', email: 'walt@walt.com')
+
 
