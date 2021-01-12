@@ -94,14 +94,14 @@ function createFishForm(){
     Price: <input type = "text" id = "fish-price">
     <br>
     Buyer ID: <input type = "text" id="buyer_id">
+    <br>
     <input type = "submit" value = "Add Fish">
   </form>
   `
   fishForm.addEventListener("submit", newFishSubmission)
 }
 
-function newFishSubmission(e){
-  e.preventDefault();
+function newFishSubmission(){
   let name = document.getElementById("fish-name").value
   let price = document.getElementById("fish-price").value
   let buyer_id = document.getElementById("buyer_id").value 
@@ -140,7 +140,17 @@ function deleteBuyer(){
     method: "DELETE"
   })
 
-  this.location.reload()
+  this.location.reload();
+
+}
+
+function deleteFish(){
+  let fishId = parseInt(event.target.dataset.id)
+
+  fetch(`${BASE_URL}/fish/${fishId}`, {
+    method: "DELETE"
+  })
+  console.log('yo')
 
 }
 

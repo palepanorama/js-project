@@ -12,9 +12,11 @@ class Fish{
         `
         <ul>
         <li>
-        <a href="#" data-id="${this.id}">${this.name}</a> - ${this.price} - ${this.user_id}
+        <a href="#" data-id="${this.id}">${this.name}</a> - $${this.price} - ${this.buyer_id}
         </li>
         </ul>
+        <button class="delete" data-id=${this.id} onclick="deleteFish()">Delete Fish</button>
+
         `
     }
 }

@@ -20,7 +20,6 @@ class FishController < ApplicationController
     end 
 
     def destroy 
-        @fish = Fish.find_by(id: params[:id])
         @fish.destroy 
     end 
     
