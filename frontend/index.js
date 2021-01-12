@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchFish();
 })
 
+function clearForm(){
+  let formDiv = document.querySelector(".form")
+  formDiv.innerHTML = ""
+}
+
 
 
 function fetchBuyers(){
