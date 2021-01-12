@@ -13,7 +13,7 @@ class Buyer{
         <h4>Email: ${this.email}</h4>
         <h3> Username: ${this.name} </h3>
         <button class="delete" data-id=${this.id} onclick="deleteBuyer()">Delete Customer</button>
-        <button class = "update" onClick="updateBuyer()">Add Fish to Cart</button>
+        <button class = "update" onClick="createFishForm()">Add Fish to Cart</button>
         `
     }
 }

@@ -75,32 +75,24 @@ function newUserSubmission(e){
   })
 }
 
-//update customer
-function updateBuyer(){
-  let buyerId = parseInt(event.target.dataset.id)
-  let name = document.getElementById("name").value
-  let email = document.getElementById("email").value
+//create fish 
+function createFishForm(){
+  let fishForm = document.getElementById("fish-form")
 
-  let buyer = {
-    name: name, 
-    email: email 
-  }
-
-  fetch(`${BASE_URL}/buyers/${buyerId}`, {
-    method: "PATCH",
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(buyer)
-  })
-  .then(resp => resp.json())
-  .then(resp => {
-    console.log(resp);
-  })
-
+  fishForm.innerHTML += 
+  `
+  <form>
+    Username: <input type = "text" id = "name">
+    <br>
+    Email: <input type = "text" id = "email">
+    <br>
+    <input type = "submit" value = "Create User">
+  </form>
+  `
+  fishForm.addEventListener("submit", newFishSubmission)
 
 }
+
 
 
 
