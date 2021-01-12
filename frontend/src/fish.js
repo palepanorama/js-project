@@ -10,7 +10,11 @@ class Fish{
 
         fishDiv.innerHTML += 
         `
-        <h3>${this.name} - $${this.price}</h3>
+        <ul>
+        <li>
+        <a href="#" data-id="${this.id}">${this.name}</a> - ${this.price} - ${this.user_id}
+        </li>
+        </ul>
         `
     }
 }

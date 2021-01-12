@@ -11,9 +11,10 @@ class Buyer{
         buyersDiv.innerHTML +=
         `
         <h4>Email: ${this.email}</h4>
-        <h3> Username: ${this.name} </h3>
+        <a href = "#" data-id="this.id">Username: ${this.name} </a>
         <button class="delete" data-id=${this.id} onclick="deleteBuyer()">Delete Customer</button>
-        <button class = "update" onClick="createFishForm()">Add Fish to Cart</button>
+        <button onClick="createFishForm()">Add Fish to Cart</button>
         `
+        
     }
 }

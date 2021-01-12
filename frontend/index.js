@@ -75,6 +75,9 @@ function newUserSubmission(e){
   })
 }
 
+
+
+
 //create fish 
 function createFishForm(){
   let fishForm = document.getElementById("fish-form")
@@ -82,15 +85,39 @@ function createFishForm(){
   fishForm.innerHTML += 
   `
   <form>
-    Username: <input type = "text" id = "name">
+    Name of Fish: <input type = "text" id = "fish-name">
     <br>
-    Email: <input type = "text" id = "email">
+    Price: <input type = "text" id = "fish-price">
     <br>
-    <input type = "submit" value = "Create User">
+    <input type = "submit" value = "Add Fish">
   </form>
   `
   fishForm.addEventListener("submit", newFishSubmission)
+}
 
+function newFishSubmission(e){
+  e.preventDefault();
+  let name = document.getElementById("fish-name").value
+  let price = document.getElementById("fish-price").value
+
+  let fish = {
+    name: name, 
+    price: price,
+  }
+
+  fetch(`${BASE_URL}/fish`, {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(fish)
+  })
+  .then(resp => resp.json())
+  .then(fish => {
+    let f = new Fish(fish.name)
+    f.renderFish();
+  })
 }
 
 
