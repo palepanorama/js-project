@@ -1,5 +1,5 @@
 class Fish{
-    constructor(name, price, buyer_id){
+    constructor(name, buyer_id, price){
         this.name = name;
         this.buyer_id = buyer_id;
         this.price = price;
@@ -10,11 +10,7 @@ class Fish{
 
         fishDiv.innerHTML += 
         `
-        <h3>Fish Available:</h3>
-        <ul>
-        <li>${this.name} - $${this.price}
-        </li>
-        </ul>
+        <h3>${this.name} - $${this.price}</h3>
         `
     }
 }

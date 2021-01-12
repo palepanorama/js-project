@@ -1,11 +1,10 @@
 const BASE_URL = "http://localhost:3000"
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("buyers-form").addEventListener('click', createForm )
-
-  fetchBuyers()
-  // createForm()
-  fetchFish()
+  // document.getElementById("buyers-form").addEventListener('click', createForm);
+  fetchBuyers();
+  createForm()
+  fetchFish();
 })
 
 
@@ -51,8 +50,8 @@ function createForm(){
   buyersForm.addEventListener("submit", newUserSubmission)
 }
 
-function newUserSubmission(){
-  event.preventDefault();
+function newUserSubmission(e){
+  e.preventDefault();
   let name = document.getElementById("name").value
   let email = document.getElementById("email").value
 
@@ -76,6 +75,32 @@ function newUserSubmission(){
   })
 }
 
+//update customer
+function updateBuyer(){
+  let buyerId = parseInt(event.target.dataset.id)
+  let name = document.getElementById("name").value
+  let email = document.getElementById("email").value
+
+  let buyer = {
+    name: name, 
+    email: email 
+  }
+
+  fetch(`${BASE_URL}/buyers/${buyerId}`, {
+    method: "PATCH",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(buyer)
+  })
+  .then(resp => resp.json())
+  .then(resp => {
+    console.log(resp);
+  })
+
+
+}
 
 
 
@@ -90,3 +115,4 @@ function deleteBuyer(){
   this.location.reload()
 
 }
+
