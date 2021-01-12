@@ -5,13 +5,10 @@ class FishController < ApplicationController
     end 
 
     def create
-        @fish = Fish.create_or_find_by(fish_params)
+        fish = Fish.new(fish_params)
 
-        if @fish.save
-        render json: @fish, status: :created, location: @fish
-        else
-        render json: @fish.errors, status: :unprocessable_entity
-        end
+        fish.save
+        render json: fish, status: :created, location: fish
     end
 
     def show 
