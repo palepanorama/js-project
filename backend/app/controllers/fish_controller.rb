@@ -18,6 +18,11 @@ class FishController < ApplicationController
         fish = Fish.find_by(id: params[:id])
         render json: fish 
     end 
+
+    def destroy 
+        @fish = Fish.find_by(id: params[:id])
+        @fish.destroy 
+    end 
     
     private 
     def fish_params
