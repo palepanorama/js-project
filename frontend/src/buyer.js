@@ -1,7 +1,7 @@
 class Buyer{
     constructor(name, id, email){
-        this.id = id;
-        this.name= name; 
+        this.name = name;
+        this.id = id; 
         this.email = email;
     }
 

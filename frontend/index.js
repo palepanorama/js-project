@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = "http://localhost:3000";
 
 document.addEventListener("DOMContentLoaded", init)
 
@@ -31,7 +31,7 @@ function fetchFish(){
   .then(resp => resp.json())
   .then(fishes => {
     for (const fish of fishes ){
-      let f = new Fish(fish.name, fish.buyer_id, fish.price)
+      let f = new Fish(fish.name, fish.id, fish.buyer_id, fish.price)
       f.renderFish();
     }
   })
@@ -53,10 +53,10 @@ function createForm(){
   </form>
   `
 
-  buyersForm.addEventListener("submit", newUserSubmission)
+  buyersForm.addEventListener("submit", handleUser)
 }
 
-function newUserSubmission(e){
+function handleUser(e){
   e.preventDefault();
   let name = document.getElementById("name").value
   let email = document.getElementById("email").value
@@ -87,28 +87,32 @@ function newUserSubmission(e){
 //create fish 
 
 function createFishForm(){
-  let fishForm = document.getElementById("fish-form")
+  const fishForm = document.getElementById("fish-form");
 
-  fishForm.innerHTML += 
+  fishForm.innerHTML = 
   `
   <form>
-    Fish: <select name="fish"><option></option></select>
-    <br>
+    Fish: 
+    <select id = "fish-name">
+      <option>Red Snapper</option>
+      <option>Amberjack</option>
+      <option>Grouper</option>
+    </select>
     Price: <input type = "text" id = "fish-price">
     <br>
-    Buyer: <select name="buyers"> <option></option></select>
+    Buyer: 
+    <select id = "buyer_id">
+      <option>7</option>
+    </select>
     <br>
     <input type = "submit" value = "Add Fish">
   </form>
   `
-  fishForm.addEventListener("submit", newFishSubmission)
-
-  // fetch(`${BASE_URL}/buyers/${buyerId}`, {
-  //   method: "GET"
-  // })
+  fishForm.addEventListener("submit", handleFish)
 }
 
-function newFishSubmission(){
+function handleFish(e){
+  e.preventDefault; 
   let name = document.getElementById("fish-name").value
   let price = document.getElementById("fish-price").value
   let buyer_id = document.getElementById("buyer_id").value 
@@ -129,15 +133,12 @@ function newFishSubmission(){
   })
   .then(resp => resp.json())
   .then(fish => {
-    let f = new Fish(fish.name, fish.buyer_id, fish.price)
+    let f = new Fish(fish.name, fish.id, fish.buyer_id, fish.price)
     f.renderFish();
   })
-  clearForm()
+  clearForm();
 
 }
-
-
-
 
 //delete - delete a buyer 
 function deleteBuyer(){
@@ -146,15 +147,17 @@ function deleteBuyer(){
   fetch(`${BASE_URL}/buyers/${buyerId}`, {
     method: "DELETE"
   })
+
+  window.location.reload();
 }
 
+//delete a fish 
 function deleteFish(){
-  let fishId = parseInt(event.target.dataset.id)
+  let id = parseInt(event.target.dataset.id)
 
-  fetch(`${BASE_URL}/fish/${fishId}`, {
+  fetch(`${BASE_URL}/fish/${id}`, {
     method: "DELETE"
   })
-  console.log('yo')
 
+  window.location.reload();
 }
-
