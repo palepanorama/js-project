@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", init)
 
 function init() {
   fetchBuyers();
-  createForm();
   fetchFish();
+  createForm();
 }
 
 function clearForm(){
@@ -98,18 +98,31 @@ function createFishForm(){
       <option>Amberjack</option>
       <option>Grouper</option>
     </select>
-    Price: <input type = "text" id = "fish-price">
+    Price:
+    <input type = "text" id = "fish-price">
     <br>
-    Buyer: 
-    <select id = "buyer_id">
-      <option>7</option>
+    Buyer:
+    <select id = "buyer_id" onclick = "populate()">
+      <option val="">--Select--</option>
     </select>
-    <br>
     <input type = "submit" value = "Add Fish">
   </form>
   `
   fishForm.addEventListener("submit", handleFish)
 }
+
+function populate() {
+  fetch(`${BASE_URL}/buyers`)
+  .then(resp => resp.json())
+  .then(json => {
+    console.log(json)
+  })
+}
+
+function list(){
+  console.log('yay')
+}
+
 
 function handleFish(e){
   e.preventDefault; 
@@ -161,3 +174,7 @@ function deleteFish(){
 
   window.location.reload();
 }
+
+
+
+
