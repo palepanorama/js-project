@@ -1,10 +1,12 @@
 const BASE_URL = "http://localhost:3000"
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", init)
+
+function init() {
   fetchBuyers();
-  createForm()
+  createForm();
   fetchFish();
-})
+}
 
 function clearForm(){
   let formDiv = document.querySelector("#fish-form")
@@ -83,22 +85,27 @@ function newUserSubmission(e){
 
 
 //create fish 
+
 function createFishForm(){
   let fishForm = document.getElementById("fish-form")
 
   fishForm.innerHTML += 
   `
   <form>
-    Name of Fish: <input type = "text" id = "fish-name">
+    Fish: <select name="fish"><option></option></select>
     <br>
     Price: <input type = "text" id = "fish-price">
     <br>
-    Buyer ID: <input type = "text" id="buyer_id">
+    Buyer: <select name="buyers"> <option></option></select>
     <br>
     <input type = "submit" value = "Add Fish">
   </form>
   `
   fishForm.addEventListener("submit", newFishSubmission)
+
+  // fetch(`${BASE_URL}/buyers/${buyerId}`, {
+  //   method: "GET"
+  // })
 }
 
 function newFishSubmission(){
@@ -139,9 +146,6 @@ function deleteBuyer(){
   fetch(`${BASE_URL}/buyers/${buyerId}`, {
     method: "DELETE"
   })
-
-  this.location.reload();
-
 }
 
 function deleteFish(){

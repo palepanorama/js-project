@@ -16,7 +16,8 @@ class Fish{
         </li>
         </ul>
         <button class="delete" data-id=${this.id} onclick="deleteFish()">Delete Fish</button>
-
         `
     }
+
+
 }
