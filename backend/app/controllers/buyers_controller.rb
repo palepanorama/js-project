@@ -11,12 +11,12 @@ class BuyersController < ApplicationController
     end 
 
     def create
-        @buyer = Buyer.create_or_find_by(buyer_params)
+        buyer = Buyer.create_or_find_by(buyer_params)
 
-        if @buyer.save
-        render json: @buyer, status: :created, location: @buyer
+        if buyer.save
+        render json: buyer, status: :created, location: buyer
         else
-        render json: @buyer.errors, status: :unprocessable_entity
+        render json: buyer.errors, status: :unprocessable_entity
         end
     end
 
