@@ -1,5 +1,5 @@
 # Dean's Fish Market 
-This app is designed to be used by a fish vendor (in this case, my dear friend Dean) who is looking to manage what all buyers have ordered what fish. Users may be created and deleted with fields for name and email, fish may be created or deleted. 
+This app is designed to be used by a fish vendor to pull data from a Rails API to front-end JavaScript in order to track which fish he has sold to which buyer. Users and fish can be created and deleted, with each fish belonging to one owner.
 
 # License 
 This project is licensed under the MIT license:

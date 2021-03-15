@@ -112,10 +112,7 @@ function createFishForm(){
   fishForm.addEventListener("submit", handleFish)
 }
 
-function populate(){
-  let select = document.getElementById("select");
-  let buyersData = [];
-  
+function populate(){  
   fetch(`${BASE_URL}/buyers`)
   .then(resp => resp.json())
   .then(buyers => {
@@ -124,13 +121,7 @@ function populate(){
       b.listIds();
     }
   })
-  
 }
-
-// function myFunction() {
-//   let buyers = new Buyer('matt', 10, 'matt@matt.com');
-//   return buyers.id;
-// }
 
 function handleFish(e){
   e.preventDefault; 
