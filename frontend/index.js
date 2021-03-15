@@ -1,4 +1,5 @@
 const BASE_URL = "http://localhost:3000";
+const ul = document.getElementById('buyers')
 
 document.addEventListener("DOMContentLoaded", init)
 
@@ -103,7 +104,7 @@ function createFishForm(){
     <br>
     Buyer:
     <select id = "buyer_id" onclick = "populate()">
-      <option val="">--Select--</option>
+      <option id="select"></option>
     </select>
     <input type = "submit" value = "Add Fish">
   </form>
@@ -111,16 +112,19 @@ function createFishForm(){
   fishForm.addEventListener("submit", handleFish)
 }
 
-function populate() {
-  fetch(`${BASE_URL}/buyers`)
-  .then(resp => resp.json())
-  .then(json => {
-    console.log(json)
+function populate(){
+  let select = document.getElementById("select");
+  let endpoint = `${BASE_URL}/buyers`;
+  buyersData = [];
+  
+  fetch(endpoint)
+  .then(resp =>resp.json)
+  .then(data => {
+    let results = buyersData.push(data)
+    select.innerHTML += `
+    ${results}
+    `
   })
-}
-
-function list(){
-  console.log('yay')
 }
 
 
