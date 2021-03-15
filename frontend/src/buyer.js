@@ -10,11 +10,8 @@ class Buyer{
         const str = this.id
         
 
-        console.log(str)
-
         select.innerHTML += `
-            <option>1</option>
-            <option>2</option>
+        <option>${this.id}</option>
         `
 
         // console.log(arr)
@@ -27,9 +24,10 @@ class Buyer{
         buyersDiv.innerHTML +=
         `
         <ul id = "buyers">
-            <h4>Email: ${this.email}</h4>
-            <a href = "#" data-id=${this.id}">Username: ${this.name} </a> User ID: ${this.id}
-            <button onClick="createFishForm()">Add Fish to Cart</button>
+            <li> <h4>Email: ${this.email}</h4></li>
+            <li> <a href = "#" data-id=${this.id}">Username: ${this.name} </a> </li>
+            <li>User ID: ${this.id}</li>
+            <li><button onClick="createFishForm()">Add Fish to Cart</button></li>
             <button class="delete" data-id=${this.id} onclick="deleteBuyer()">Delete Customer</button>
         </ul>
         `

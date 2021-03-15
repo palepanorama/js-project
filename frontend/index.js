@@ -124,8 +124,6 @@ function populate(){
       b.listIds();
     }
   })
-
-    // select.innerHTML += listIds();
   
 }
 
