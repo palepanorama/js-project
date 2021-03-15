@@ -5,6 +5,22 @@ class Buyer{
         this.email = email;
     }
 
+    listIds(){
+        let select = document.getElementById("buyer_id");
+        const str = this.id
+        
+
+        console.log(str)
+
+        select.innerHTML += `
+            <option>1</option>
+            <option>2</option>
+        `
+
+        // console.log(arr)
+
+    }
+
     renderBuyer() {
         let buyersDiv = document.getElementById("buyers-container")
 

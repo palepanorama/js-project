@@ -114,19 +114,25 @@ function createFishForm(){
 
 function populate(){
   let select = document.getElementById("select");
-  let endpoint = `${BASE_URL}/buyers`;
-  buyersData = [];
+  let buyersData = [];
   
-  fetch(endpoint)
-  .then(resp =>resp.json)
-  .then(data => {
-    let results = buyersData.push(data)
-    select.innerHTML += `
-    ${results}
-    `
+  fetch(`${BASE_URL}/buyers`)
+  .then(resp => resp.json())
+  .then(buyers => {
+    for (const buyer of buyers) {
+      let b = new Buyer(buyer.name, buyer.id, buyer.email)
+      b.listIds();
+    }
   })
+
+    // select.innerHTML += listIds();
+  
 }
 
+// function myFunction() {
+//   let buyers = new Buyer('matt', 10, 'matt@matt.com');
+//   return buyers.id;
+// }
 
 function handleFish(e){
   e.preventDefault; 
