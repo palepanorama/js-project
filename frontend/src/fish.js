@@ -6,6 +6,7 @@ class Fish{
         this.price = price;
     }
 
+
     renderFish(){
         let fishDiv = document.getElementById("fish-container")
 
@@ -13,7 +14,7 @@ class Fish{
         `
         <ul>
         <li>
-        <a href="#" data-id="${this.id}">${this.name}</a> - Price: $${this.price} - Belongs to: ${this.buyer_id}
+        <a href="#" data-id="${this.id}">${this.name}</a> - Price: $${this.price} - User ID: ${this.buyer_id}
         </li>
         </ul>
         <button class="delete" data-id=${this.id} onclick="deleteFish()">Delete Fish</button>

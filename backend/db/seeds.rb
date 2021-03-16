@@ -5,8 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# Fish.create(name: 'catfish', buyer_id: 1, price: 10)
-# Fish.create(name: 'bass', buyer_id: 1, price: 20)
+
 
 
 

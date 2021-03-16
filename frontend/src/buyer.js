@@ -7,15 +7,10 @@ class Buyer{
 
     listIds(){
         let select = document.getElementById("buyer_id");
-        const str = this.id
-        
 
         select.innerHTML += `
-        <option>${this.id}</option>
+        <option>${this.name}</option>
         `
-
-        // console.log(arr)
-
     }
 
     renderBuyer() {
@@ -31,6 +26,5 @@ class Buyer{
             <button class="delete" data-id=${this.id} onclick="deleteBuyer()">Delete Customer</button>
         </ul>
         `
-        
     }
 }

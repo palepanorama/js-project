@@ -1,5 +1,4 @@
 const BASE_URL = "http://localhost:3000";
-const ul = document.getElementById('buyers')
 
 document.addEventListener("DOMContentLoaded", init)
 
@@ -8,13 +7,6 @@ function init() {
   fetchFish();
   createForm();
 }
-
-function clearForm(){
-  let formDiv = document.querySelector("#fish-form")
-  formDiv.innerHTML = ""
-}
-
-
 
 function fetchBuyers(){
   fetch(`${BASE_URL}/buyers`)
@@ -54,10 +46,10 @@ function createForm(){
   </form>
   `
 
-  buyersForm.addEventListener("submit", handleUser)
+  buyersForm.addEventListener("submit", handleBuyer)
 }
 
-function handleUser(e){
+function handleBuyer(e){
   e.preventDefault();
   let name = document.getElementById("name").value
   let email = document.getElementById("email").value
@@ -103,24 +95,13 @@ function createFishForm(){
     <input type = "text" id = "fish-price">
     <br>
     Buyer:
-    <select id = "buyer_id" onclick = "populate()">
+    <select id = "buyer_id" onclick = "populateBuyers()">
       <option id="select"></option>
     </select>
     <input type = "submit" value = "Add Fish">
   </form>
   `
   fishForm.addEventListener("submit", handleFish)
-}
-
-function populate(){  
-  fetch(`${BASE_URL}/buyers`)
-  .then(resp => resp.json())
-  .then(buyers => {
-    for (const buyer of buyers) {
-      let b = new Buyer(buyer.name, buyer.id, buyer.email)
-      b.listIds();
-    }
-  })
 }
 
 function handleFish(e){
@@ -148,8 +129,17 @@ function handleFish(e){
     let f = new Fish(fish.name, fish.id, fish.buyer_id, fish.price)
     f.renderFish();
   })
-  clearForm();
+}
 
+function populateBuyers(){  
+  fetch(`${BASE_URL}/buyers`)
+  .then(resp => resp.json())
+  .then(buyers => {
+    for (const buyer of buyers) {
+      let b = new Buyer(buyer.name, buyer.id, buyer.email)
+      b.listIds();
+    }
+  })
 }
 
 //delete - delete a buyer 
