@@ -1,4 +1,7 @@
 const BASE_URL = "http://localhost:3000";
+const results = document.getElementById("results");
+const searchBar = document.getElementById("search-wrapper");
+let allFish = [];
 
 document.addEventListener("DOMContentLoaded", init)
 
@@ -6,6 +9,7 @@ function init() {
   fetchBuyers();
   fetchFish();
   createForm();
+  searchFish();
 }
 
 function fetchBuyers(){
@@ -29,6 +33,48 @@ function fetchFish(){
     }
   })
 }
+
+//search fish
+function searchFish(){
+  let searchBar = document.getElementById('search-wrapper')
+
+  searchBar.innerHTML += `
+  <input id="searchBar" type="text" placeHolder="search!">
+  <input type="submit" data-id=${this.id} onclick="handleSearch(event)">
+  `
+}
+
+
+
+function handleSearch(e){
+  e.preventDefault(e);
+
+  let resultsDiv = document.getElementById("results");
+  let buyerId = document.getElementById("searchBar").value
+  let arr = Fish.allFish
+  let fishResults = arr.filter(function(fish){
+    return fish.buyer_id == buyerId
+  })
+  let mapArr = fishResults.map(arr => arr.name)
+
+
+  if (buyerId) {
+    resultsDiv.innerHTML += 
+    `
+    Fish that belong to Buyer ${buyerId}:
+    <ul>
+      <li>${mapArr}</li>
+    </ul>
+    `
+  } else {
+    resultsDiv.innerHTML += `
+      Whoops! That ID isn't in our database.
+    `
+  }
+} 
+
+
+
 
 
 //create - create new buyer 
@@ -96,7 +142,7 @@ function createFishForm(){
     <br>
     Buyer:
     <select id = "buyer_id" onclick = "populateBuyers()">
-      <option id="select"></option>
+      <option id="select">${this.name}</option>
     </select>
     <input type = "submit" value = "Add Fish">
   </form>
@@ -163,7 +209,3 @@ function deleteFish(){
 
   window.location.reload();
 }
-
-
-
-

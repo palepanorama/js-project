@@ -9,7 +9,7 @@ class Buyer{
         let select = document.getElementById("buyer_id");
 
         select.innerHTML += `
-        <option>${this.name}</option>
+        <option>${this.id}</option>
         `
     }
 

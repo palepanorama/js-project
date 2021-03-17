@@ -4,7 +4,10 @@ class Fish{
         this.id = id;
         this.buyer_id = buyer_id;
         this.price = price;
+        Fish.allFish.push(this)
     }
+
+    static allFish = []
 
 
     renderFish(){
@@ -14,7 +17,7 @@ class Fish{
         `
         <ul>
         <li>
-        <a href="#" data-id="${this.id}">${this.name}</a> - Price: $${this.price} - User ID: ${this.buyer_id}
+        <a href="#" data-id="${this.id}">${this.name}</a> - Price: $${this.price} - Buyer ID: ${this.buyer_id}
         </li>
         </ul>
         <button class="delete" data-id=${this.id} onclick="deleteFish()">Delete Fish</button>
