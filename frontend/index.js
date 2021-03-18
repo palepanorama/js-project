@@ -59,6 +59,7 @@ function handleSearch(e){
 
 
   if (buyerId) {
+    clear();
     resultsDiv.innerHTML += 
     `
     Fish that belong to Buyer ${buyerId}:
@@ -73,6 +74,9 @@ function handleSearch(e){
   }
 } 
 
+function clear(){
+  document.getElementById('fish-container').innerHTML = ""; 
+}
 
 
 
